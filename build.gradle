@@ -1,9 +1,16 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            url 'https://oss.sonatype.org/content/groups/public'
+        }
+    }
+}
+
 plugins {
   id "org.sonarqube" version "2.6"
 }
-
-
-
 plugins {
     id 'com.gradle.build-scan' version '1.16'
     id 'com.install4j.gradle' version '7.0.8'
@@ -50,17 +57,6 @@ import org.gradle.internal.os.OperatingSystem
 
 // to update the gradle wrapper, execute
 // ./gradlew wrapper --gradle-version=4.4.1 --distribution-type=bin
-
-buildscript {
-    repositories {
-        mavenLocal()
-        jcenter()
-        maven {
-            url 'https://oss.sonatype.org/content/groups/public'
-        }
-    }
-}
-
 sourceSets {
     main {
         java {
