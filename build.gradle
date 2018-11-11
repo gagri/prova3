@@ -2,21 +2,7 @@ plugins {
   id "org.sonarqube" version "2.6"
 }
 
-import groovy.json.JsonSlurper
-import org.gradle.internal.os.OperatingSystem
 
-// to update the gradle wrapper, execute
-// ./gradlew wrapper --gradle-version=4.4.1 --distribution-type=bin
-
-buildscript {
-    repositories {
-        mavenLocal()
-        jcenter()
-        maven {
-            url 'https://oss.sonatype.org/content/groups/public'
-        }
-    }
-}
 
 plugins {
     id 'com.gradle.build-scan' version '1.16'
@@ -58,6 +44,22 @@ mainClassName = "org.jabref.JabRefMain"
 // These are the Java version requirements we will check on each start of JabRef
 ext.minRequiredJavaVersion = "1.8.0_171"
 ext.allowJava9 = false
+
+import groovy.json.JsonSlurper
+import org.gradle.internal.os.OperatingSystem
+
+// to update the gradle wrapper, execute
+// ./gradlew wrapper --gradle-version=4.4.1 --distribution-type=bin
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            url 'https://oss.sonatype.org/content/groups/public'
+        }
+    }
+}
 
 sourceSets {
     main {
