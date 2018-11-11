@@ -9,19 +9,13 @@ buildscript {
         maven {
 
             url 'https://oss.sonatype.org/content/groups/public'
+			url 'https://plugins.gradle.org/m2/'
+    }
+
 
         }
 
     }
-
-}
-
-plugins {
-
-  id "org.sonarqube" version "2.6"
-
-}
-
 
 
 import groovy.json.JsonSlurper
@@ -29,19 +23,14 @@ import groovy.json.JsonSlurper
 import org.gradle.internal.os.OperatingSystem
 
 
-
 // to update the gradle wrapper, execute
 
 // ./gradlew wrapper --gradle-version=4.4.1 --distribution-type=bin
 
-
-
-
-
-
-
 plugins {
 
+  id "org.sonarqube" version "2.6"
+  
     id 'com.gradle.build-scan' version '1.16'
 
     id 'com.install4j.gradle' version '7.0.8'
@@ -74,6 +63,7 @@ buildScan {
 
 
 
+apply plugin:  'org.sonarqube'
 apply plugin: 'java'
 
 apply plugin: 'application'
